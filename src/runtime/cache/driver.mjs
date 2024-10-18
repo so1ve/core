@@ -37,6 +37,9 @@ export default defineDriver((driverOpts) => {
         path: event?.path,
         ...options.metadata
       }
+      if (!options.ttl) {
+        delete options.ttl
+      }
       return driver.setItem(key, value, options)
     }
   }
